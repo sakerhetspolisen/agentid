@@ -1,3 +1,4 @@
+<div align="center"><img src="/public/logo.png" width="450"/></div>
 <h1 align="center">AgentID</h1>
 
 <p align="center">AgentID is the identity layer for AI agents. It lets an AI agent carry a time-limited cryptographic certificate proving its operator has authenticated via BankID. Third-party services verify the certificate offline using standard RS256 JWT verification — no round-trip to AgentID required.</p>
