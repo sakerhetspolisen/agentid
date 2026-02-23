@@ -19,16 +19,15 @@ AgentID is an identity verification layer for AI agents, powered by BankID, whic
 
 ### Core Components
 
-- **MCP Server**  
-  A one-click install MCP server for personal AI agents, enabling identity binding at the agent level.  
-  https://www.npmjs.com/package/@agent-id/mcp
+- **MCP Server**
+  A one-click install MCP server for personal AI agents, enabling identity binding at the agent level. <a href="https://www.npmjs.com/package/@agent-id/mcp"><img src="https://img.shields.io/npm/v/%40agent-id%2Fmcp" alt="npm @agent-id/mcp"/></a>
 
-- **Framework Integrations**  
-  NPM packages for major web frameworks (Next.js, Express.js, etc.) that allow services to verify AgentID certificates with minimal integration effort.  
-  Example: https://www.npmjs.com/package/@agent-id/nextjs
+- **Framework Integrations**
+  NPM packages for major web frameworks (Next.js, Express.js, etc.) that allow services to verify AgentID certificates with minimal integration effort.
+  Next.JS: <a href="https://www.npmjs.com/package/@agent-id/nextjs"><img src="https://img.shields.io/npm/v/%40agent-id%2Fnextjs" alt="npm @agent-id/nextjs"/></a>, Express.JS: <a href="https://www.npmjs.com/package/@agent-id/express"><img src="https://img.shields.io/npm/v/%40agent-id%2Fexpress" alt="npm @agent-id/express"/></a>
 
-- **Certificate Issuer Service (this repo)**  
-  A central issuance service that binds a BankID-verified human identity to an AI agent and issues time-limited cryptographic credentials.  
+- **Certificate Issuer Service (this repo)**
+  A central issuance service that binds a BankID-verified human identity to an AI agent and issues time-limited cryptographic credentials.
   https://agentidapp.vercel.app/
 
 
