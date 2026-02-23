@@ -1,7 +1,5 @@
 # AgentID
 
-**agentidapp.vercel.app**
-
 AgentID is the identity layer for AI agents. It lets an AI agent carry a time-limited cryptographic certificate proving its operator has authenticated via BankID. Third-party services verify the certificate offline using standard RS256 JWT verification — no round-trip to AgentID required.
 
 ---
