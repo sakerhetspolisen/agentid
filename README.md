@@ -1,8 +1,35 @@
-# AgentID
+<h1 align="center">AgentID</h1>
 
-AgentID is the identity layer for AI agents. It lets an AI agent carry a time-limited cryptographic certificate proving its operator has authenticated via BankID. Third-party services verify the certificate offline using standard RS256 JWT verification — no round-trip to AgentID required.
+<p align="center">AgentID is the identity layer for AI agents. It lets an AI agent carry a time-limited cryptographic certificate proving its operator has authenticated via BankID. Third-party services verify the certificate offline using standard RS256 JWT verification — no round-trip to AgentID required.</p>
 
----
+<br/>
+
+[![Watch the video](https://github.com/user-attachments/assets/70f67286-b86a-4ade-b285-d8508376cd66)](https://www.youtube.com/watch?v=VEDN5378l7A)
+
+## Inspiration
+
+As AI agents become more autonomous, we identified a structural gap in the internet’s architecture: agents can act, but they cannot prove who they represent.
+
+Websites respond by blocking automated traffic because there is no reliable way to distinguish a legitimate personal agent from spam, or large-scale data harvesting.
+
+## What we built
+
+AgentID is an identity verification layer for AI agents, powered by BankID, which 99.9% of Swedes use in the ages 18-67 (Internetstiftelsen, 2025).
+
+### Core Components
+
+- **MCP Server**  
+  A one-click install MCP server for personal AI agents, enabling identity binding at the agent level.  
+  https://www.npmjs.com/package/@agent-id/mcp
+
+- **Framework Integrations**  
+  NPM packages for major web frameworks (Next.js, Express.js, etc.) that allow services to verify AgentID certificates with minimal integration effort.  
+  Example: https://www.npmjs.com/package/@agent-id/nextjs
+
+- **Certificate Issuer Service (this repo)**  
+  A central issuance service that binds a BankID-verified human identity to an AI agent and issues time-limited cryptographic credentials.  
+  https://agentidapp.vercel.app/
+
 
 ## How it works
 
@@ -14,7 +41,6 @@ AgentID is the identity layer for AI agents. It lets an AI agent carry a time-li
 6. Any third-party service verifies the JWT signature using the public key at `/api/jwks`.
 7. The certificate expires after 1 hour — repeat from step 1.
 
----
 
 ## API
 
@@ -31,7 +57,6 @@ Initiate a BankID authentication session.
 }
 ```
 
----
 
 ### `GET /api/auth/status?sessionId=<id>`
 
@@ -47,13 +72,11 @@ Poll for the result of an authentication session.
 
 `jwt` is only present when `status` is `"complete"`.
 
----
 
 ### `GET /api/jwks`
 
 Public JWK set for offline RS256 JWT verification. Fetch once and cache for 1 hour.
 
----
 
 ## JWT certificate
 
@@ -74,7 +97,6 @@ Issued tokens use RS256 and contain:
 - `exp` is always `iat + 3600` (1 hour).
 - `jti` is unique per token.
 
----
 
 ## Running locally
 
@@ -104,7 +126,6 @@ node scripts/generate-keys.mjs
 | `JWT_HMAC_SECRET` | Yes | 32-byte hex secret for pseudonymous sub derivation |
 | `REDIS_URL` | Prod only | Redis connection string for persistent session storage |
 
----
 
 ## Security
 
@@ -114,7 +135,6 @@ node scripts/generate-keys.mjs
 - **Short-lived tokens** — 1-hour expiry limits the blast radius of a leaked token.
 - **Session isolation** — each BankID session maps to a single-use AgentID session stored in Redis with a 10-minute TTL for pending sessions.
 
----
 
 ## Tech stack
 
